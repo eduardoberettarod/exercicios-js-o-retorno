@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #151515;
+    color: #eee;
+}
+.container-title{
+    position: relative;
+    width: 100%;
+    margin-top: 3rem;
+    justify-items: center;
+    margin-bottom: 1rem;
+}
+.sub-title{
+    margin-bottom: 0.5rem;
+    font-size: 3rem;
+}
+.title{
+    font-size: 5rem;
+}
+.text{
+    font-size: 1.5rem;
+}
