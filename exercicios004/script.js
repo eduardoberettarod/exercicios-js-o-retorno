@@ -5,7 +5,6 @@ function fnCalcular(){
     const feliz = document.getElementById("feliz");
     const resultado = document.getElementById("resultado");
 
-    eventpreventDefault();
     if(idade >= 18){
         resultado.innerText = "PARABÉNS " + nome + ", VOCÊ TEM " + idade + " E PODE TIRAR A CNH!";
     }
