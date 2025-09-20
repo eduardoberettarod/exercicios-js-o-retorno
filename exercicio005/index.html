@@ -14,12 +14,30 @@
   </head>
 
   <body>
-    <h1>Exercício 005</h1>
-    <blockquote>Tudo que eu sei que nada sei!</blockquote>
-    <p>
-      05 Verificar se é dia, tarde ou noite e mostrar uma mensagem personalizada.
-    </p>
-    <hr />
+    <section>
+      <h1>Exercício 005</h1>
+      <blockquote>
+        "Eu sempre estou certo, até estar errado! - John Doe"
+      </blockquote>
+      <p>
+        05 Verificar se é dia, tarde ou noite e mostrar uma mensagem
+        personalizada.
+      </p>
+      <hr />
+      <form>
+        <label style="font-size: 3rem; text-align: center; font-weight: bold"
+          >Escolha:
+        </label>
+        <select id="periodo" onchange="fnVerificarPeriodo()">
+          <option>Selecione uma opção</option>
+          <option value="m">Manhã</option>
+          <option value="t">Tarde</option>
+          <option value="n">Noite</option>
+        </select>
+        <h3>O período atual é: <span id="resposta"></span></h3>
+      </form>
+      <img src="./imgs/original.jpg" id="foto">
+    </section>
 
     <script src="./script.js"></script>
   </body>
