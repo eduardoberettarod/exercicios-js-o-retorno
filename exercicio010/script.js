@@ -1,0 +1,3 @@
+function fnCalcularMedia(){
+    alert("teste")
+}
