@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bônus 001</title>
+  </head>
+  <body onkeydown="fnTocarSom(event.keyCode)">
+    <!-- onkeydown="alert(event.keyCode)" para mostrar o codigo das letras do teclado e fazer disparar um evento -->
+
+    <div>A - Clap</div>
+    <div>S - Boom</div>
+    <div>D - Hithat</div>
+    <div>F - Kick</div>
+    <div>G - Openhat</div>
+    <div>H - Ride</div>
+    <div>J - Snare</div>
+    <div>K - Tink</div>
+    <div>L - Tom</div>
+    <audio src="./sounds/clap.wav" id="som-65"></audio>
+    <audio src="./sounds/boom.wav" id="som-83"></audio>
+    <audio src="./sounds/hihat.wav" id="som-68"></audio>
+    <audio src="./sounds/kick.wav" id="som-70"></audio>
+    <audio src="./sounds/openhat.wav" id="som-71"></audio>
+    <audio src="./sounds/ride.wav" id="som-72"></audio>
+    <audio src="./sounds/snare.wav" id="som-74"></audio>
+    <audio src="./sounds/tink.wav" id="som-75"></audio>
+    <audio src="./sounds/tom.wav" id="som-76"></audio>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

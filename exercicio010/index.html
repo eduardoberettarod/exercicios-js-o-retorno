@@ -21,19 +21,39 @@
         <p>10 Calcular a média de N alunos.</p>
       </div>
       <hr />
+      <div class="separado">
+        <form id="painel_formulario">
+          <h1 class="text-center beta">Calcular Média</h1>
+          <label class="form-label">Número de aluno: </label>
+          <input type="text" id="nome" />
 
-      <form>
-        <h1 class="text-center beta">Calcular Média</h1>
-        <label class="form-label">Número de aluno: </label>
-        <input type="text" id="frase" />
+          <label class="form-label">Nota 1: </label>
+          <input type="number" id="nota1" />
 
-        <label class="form-label">Quantidade de repetições: </label>
-        <input type="number" id="qtd" />
-        <br />
-        
-        <button type="button" onclick="fnCalcularMedia()">REPETIR</button><br />
-        <ol id="lista_frases"></ol>
-      </form>
+          <label class="form-label">Nota 2: </label>
+          <input type="number" id="nota2" />
+
+          <label class="form-label">Nota 3: </label>
+          <input type="number" id="nota3" />
+
+          <label class="form-label">Nota 4: </label>
+          <input type="number" id="nota4" />
+          <br />
+
+          <button type="button" onclick="fnCalcularMedia()">CALCULAR</button
+          ><br />
+          <ol id="lista_frases"></ol>
+        </form>
+
+        <div id="painel_resultado">
+          <h3>
+            Média:
+            <span id="nome_resultado"></span> -
+            <span id="media"></span>
+            <button type="button" id="btn-media" onclick="fnExibir('formulario')">CALCULAR MÉDIA DE OUTRO ALUNO</button>
+          </h3>
+        </div>
+      </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="./script.js"></script>
