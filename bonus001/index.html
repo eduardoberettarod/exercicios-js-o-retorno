@@ -1,32 +1,184 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bônus 001</title>
-  </head>
-  <body onkeydown="fnTocarSom(event.keyCode)">
-    <!-- onkeydown="alert(event.keyCode)" para mostrar o codigo das letras do teclado e fazer disparar um evento -->
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bônus 001 - Modal com senha</title>
+  <style>
+    /* estilo simples do modal */
+    #meuModal {
+      display: none;
+      position: fixed;
+      inset: 0; /* top:0; right:0; bottom:0; left:0; */
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    #meuModal .caixa {
+      background: #fff;
+      color: #000;
+      padding: 20px;
+      border-radius: 8px;
+      width: 320px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    #meuModal input[type="password"]{
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      box-sizing: border-box;
+    }
+    #meuModal .conteudo-secreto{
+      margin-top: 12px;
+      padding: 10px;
+      background: #f4f4f4;
+      border-radius: 6px;
+      display: none; /* só mostra se senha correta */
+    }
+    #meuModal .botoes {
+      margin-top: 12px;
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    button { padding: 8px 12px; cursor: pointer; }
+  </style>
+</head>
+<body onkeydown="fnTocarSom(event.keyCode)">
+  <div>A - Clap</div>
+  <div>S - Boom</div>
+  <div>D - Hithat</div>
+  <div>F - Kick</div>
+  <div>G - Openhat</div>
+  <div>H - Ride</div>
+  <div>J - Snare</div>
+  <div>K - Tink</div>
+  <div>L - Tom</div>
 
-    <div>A - Clap</div>
-    <div>S - Boom</div>
-    <div>D - Hithat</div>
-    <div>F - Kick</div>
-    <div>G - Openhat</div>
-    <div>H - Ride</div>
-    <div>J - Snare</div>
-    <div>K - Tink</div>
-    <div>L - Tom</div>
-    <audio src="./sounds/clap.wav" id="som-65"></audio>
-    <audio src="./sounds/boom.wav" id="som-83"></audio>
-    <audio src="./sounds/hihat.wav" id="som-68"></audio>
-    <audio src="./sounds/kick.wav" id="som-70"></audio>
-    <audio src="./sounds/openhat.wav" id="som-71"></audio>
-    <audio src="./sounds/ride.wav" id="som-72"></audio>
-    <audio src="./sounds/snare.wav" id="som-74"></audio>
-    <audio src="./sounds/tink.wav" id="som-75"></audio>
-    <audio src="./sounds/tom.wav" id="som-76"></audio>
+  <audio src="./sounds/clap.wav" id="som-65"></audio>
+  <audio src="./sounds/boom.wav" id="som-83"></audio>
+  <audio src="./sounds/hihat.wav" id="som-68"></audio>
+  <audio src="./sounds/kick.wav" id="som-70"></audio>
+  <audio src="./sounds/openhat.wav" id="som-71"></audio>
+  <audio src="./sounds/ride.wav" id="som-72"></audio>
+  <audio src="./sounds/snare.wav" id="som-74"></audio>
+  <audio src="./sounds/tink.wav" id="som-75"></audio>
+  <audio src="./sounds/tom.wav" id="som-76"></audio>
 
-    <script src="./script.js"></script>
-  </body>
+  <!-- Modal -->
+  <div id="meuModal">
+    <div class="caixa">
+      <h3>Digite a senha numérica</h3>
+      <input id="inputSenha" type="password" placeholder="Senha (apenas números)" />
+      <div class="botoes">
+        <button onclick="fecharModal()">Cancelar</button>
+        <button onclick="checarSenha()">OK</button>
+      </div>
+
+      <div class="conteudo-secreto" id="conteudoSecreto">
+        <!-- conteúdo que só aparece se a senha estiver correta -->
+        <h4>Conteúdo protegido</h4>
+        <p>Aqui vai o conteúdo secreto (apenas visível com senha correta).</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // configuração: senha numérica (troque se quiser)
+    const SENHA_CORRETA = "110723";
+
+    // objeto para controlar teclas pressionadas
+    let teclasPressionadas = {};
+
+    // função principal (mantive o estilo do seu código: recebe keyCode)
+    function fnTocarSom(tecla) {
+      // marca tecla como pressionada
+      teclasPressionadas[tecla] = true;
+
+      // sons individuais (mesma lógica que você já tinha)
+      if (tecla == 65) { // A
+        document.getElementById("som-65").currentTime = 0;
+        document.getElementById("som-65").play();
+      } else if (tecla == 83) { // S
+        document.getElementById("som-83").currentTime = 0;
+        document.getElementById("som-83").play();
+      } else if (tecla == 68) { // D
+        document.getElementById("som-68").currentTime = 0;
+        document.getElementById("som-68").play();
+      } else if (tecla == 70) { // F
+        document.getElementById("som-70").currentTime = 0;
+        document.getElementById("som-70").play();
+      } else if (tecla == 71) { // G
+        document.getElementById("som-71").currentTime = 0;
+        document.getElementById("som-71").play();
+      } else if (tecla == 72) { // H
+        document.getElementById("som-72").currentTime = 0;
+        document.getElementById("som-72").play();
+      } else if (tecla == 74) { // J
+        document.getElementById("som-74").currentTime = 0;
+        document.getElementById("som-74").play();
+      } else if (tecla == 75) { // K
+        document.getElementById("som-75").currentTime = 0;
+        document.getElementById("som-75").play();
+      } else if (tecla == 76) { // L
+        document.getElementById("som-76").currentTime = 0;
+        document.getElementById("som-76").play();
+      }
+
+      // Exemplo: E (69) + L (76) abre o modal
+      if (teclasPressionadas[69] && teclasPressionadas[76]) {
+        abrirModal();
+      }
+    }
+
+    // limpa tecla ao soltar (mantendo compatibilidade com keyCode)
+    document.addEventListener("keyup", (event) => {
+      delete teclasPressionadas[event.keyCode];
+    });
+
+    // abrir/fechar modal
+    function abrirModal() {
+      // se já aberto, não reabrir
+      const modal = document.getElementById("meuModal");
+      if (modal.style.display === "flex") return;
+      modal.style.display = "flex";
+      // limpar input e esconder conteudo secreto
+      document.getElementById("inputSenha").value = "";
+      document.getElementById("conteudoSecreto").style.display = "none";
+      // foco no input para digitar imediatamente
+      setTimeout(() => document.getElementById("inputSenha").focus(), 0);
+    }
+
+    function fecharModal() {
+      document.getElementById("meuModal").style.display = "none";
+      document.getElementById("inputSenha").value = "";
+    }
+
+    // checar senha: se correta mostra o conteúdo, se não fecha o modal
+    function checarSenha() {
+      const valor = String(document.getElementById("inputSenha").value || "");
+      if (valor === SENHA_CORRETA) {
+        // senha correta: mostrar o conteúdo secreto dentro do modal
+        document.getElementById("conteudoSecreto").style.display = "block";
+      } else {
+        // senha errada: fecha o modal
+        fecharModal();
+      }
+    }
+
+    // permitir enviar com Enter no campo de senha
+    document.getElementById("inputSenha").addEventListener("keydown", (e) => {
+      if (e.key === "Enter") checarSenha();
+      if (e.key === "Escape") fecharModal();
+    });
+
+    // opcional: fechar modal ao clicar fora da caixa
+    document.getElementById("meuModal").addEventListener("click", (e) => {
+      if (e.target === document.getElementById("meuModal")) {
+        fecharModal();
+      }
+    });
+  </script>
+</body>
 </html>
