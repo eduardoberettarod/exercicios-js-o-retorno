@@ -21,4 +21,6 @@ function fnCalcularMedia() {
     console.log("Soma: ", somaDosNumeros)
     media = somaDosNumeros / qtdNumeros
     document.getElementById("media").innerHTML = media
+
+    listaDeNumeros = []
 }
