@@ -15,10 +15,10 @@ function fnListarVeiculos() {
         document.getElementById("tabela_veiculos").innerHTML += `<td> ${numeroDeVagas[i]} </td><td> ${veiculos[i]} </td>`
         document.getElementById("tabela_veiculos").innerHTML += "<tr>"
     }
-    fnLimpar()
+
 }
 
 
 function fnLimpar() {
-    document.getElementById("formulario").reset()
+    document.getElementById("form_veiculos").reset()
 }
