@@ -1,0 +1,16 @@
+:root{
+    --cor-primaria: #185b96;
+    --bg-card: linear-gradient(135deg, #1a1a1a, #2b2b2b);
+}
+
+.cartao {
+    position: relative;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    transition: 0.3s all ease;
+    background: var(--bg-card);
+}
+
+.cartao:hover {
+    transform: scale(1.05) translateY(-15px);
+    transition: 0.3s all ease;
+}
