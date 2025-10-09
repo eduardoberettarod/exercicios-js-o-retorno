@@ -14,3 +14,11 @@
     transform: scale(1.05) translateY(-15px);
     transition: 0.3s all ease;
 }
+
+.titulo{
+    position: relative;
+    font-size: 3rem;
+    color: var(--cor-primaria);
+    font-family: arial black;
+    letter-spacing: 2px;
+}
