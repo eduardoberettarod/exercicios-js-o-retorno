@@ -1,6 +1,12 @@
 body {
     color: #151515;
-    overflow: hidden;
+    overflow-x: hidden;
+}
+
+/* Substitua "MinhaFonte" e os caminhos pelos nomes/paths reais dos seus arquivos de fonte */
+@font-face {
+    font-family: 'pokemon';
+    src: url('./pokemonFont.ttf') format('truetype');
 }
 
 :root {
@@ -8,7 +14,7 @@ body {
 }
 
 
-button {
+.buttonV {
     position: relative;
     background-color: var(--cor-primaria);
     color: #eee;
@@ -18,11 +24,13 @@ button {
     border-radius: 8px;
     transition: 0.25s;
     margin-bottom: 1rem;
+    font-family: 'pokemon';
+    letter-spacing: 3px;
 }
 
-button:hover {
+.buttonV:hover {
     transition: 0.25s;
-    box-shadow: 0 0 10px var(--cor-primaria);
+    box-shadow: 0 0 10px var(--cor-primaria), 0 0 35px var(--cor-primaria);
 }
 
 
@@ -36,7 +44,7 @@ button:hover {
 
 section {
     width: 100%;
-    height: 100vh;
+    height: 120vh;
 }
 
 h3 {
@@ -51,20 +59,50 @@ h3 {
     transform: translateX(-50%);
 }
 
-.pokebolaB,
-.pokebolaV {
+.pokebolaB, .pokebolaV {
     position: absolute;
     height: auto;
     width: 10%;
+    display: none;
 }
 
-.pokebolaB {
-    right: 28%;
-    top: 15%;
-    z-index: -1;
+@media (min-width: 1024px) {
+    .pokebolaB {
+        right: 28%;
+        top: 5%;
+        z-index: -1;
+        display: flex;
+    }
+
+    .pokebolaV {
+        left: 28%;
+        top: 16%;
+        z-index: -1;
+        display: flex;
+    }
 }
 
-.pokebolaV {
-    left: 28%;
-    z-index: -1;
+
+
+.esconder-numero{
+    background-color: #151515;
+}
+
+.esconder-nome{
+    background-color: #151515;
+    padding: 5px;
+}
+
+.esconder-pokemon{
+    filter: brightness(0);
+}
+
+.repeat{
+    border-radius: 50%;
+    border: none;
+    background-color: var(--cor-primaria);
+    position: relative;
+    left: 90%;
+    width: 40px;
+    height: 40px;
 }

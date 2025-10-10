@@ -236,6 +236,18 @@ function fnListarPokemon(){
   document.getElementById("foto").src = pokemonImages[i]
 }
 
+function fnEsconder(){
+  document.getElementById("numero").classList.add("esconder-numero")
+  document.getElementById("nome").classList.add("esconder-nome")
+  document.getElementById("foto").classList.add("esconder-pokemon")
+}
+
+function fnRevelar(){
+  document.getElementById("numero").classList.remove("esconder-numero")
+  document.getElementById("nome").classList.remove("esconder-nome")
+  document.getElementById("foto").classList.remove("esconder-pokemon")
+}
+
 function fnRolarDados(){
   let min = 1
   let max = 149
@@ -245,5 +257,6 @@ function fnRolarDados(){
   return numeroSorteado
 }
 
+fnEsconder()
 fnListarPokemon()
 

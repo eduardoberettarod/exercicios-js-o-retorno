@@ -17,11 +17,12 @@
       <img src="pokemon.png" alt="logo pokemon" class="pokemon mt-5 img-fluid">
       <img src="pokebola-branca.png" alt="pokebola-branca" class="pokebolaB img-fluid">
       <img src="pokebola-vermelha.png" alt="pokebola-vermelha" class="pokebolaV img-fluid">
-      <div class="col-6 col-md-4 mx-auto border text-center p-4 mt-5  ">
+      <div class="col-9 col-md-4 mx-auto border text-center p-4 mt-5  ">
         <h3 id="numero">Número</h3>
         <h1 id="nome"> Nome do Pokémon</h1>
         <img src="" id="foto">
-        <button type="button" class="d-block mx-auto" onclick="fnListarPokemon()">REVELAR</button>
+        <button type="button" class="d-block mx-auto buttonV" onclick="fnRevelar()">REVELAR</button>
+        <button type="button" class="repeat d-block bi bi-repeat text-white fs-4" onclick="fnListarPokemon(); fnEsconder()"></button>
       </div>
     </div>
 
