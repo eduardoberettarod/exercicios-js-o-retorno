@@ -24,19 +24,26 @@ function fnListar() {
         <h5 class="card-title">${umContato.nome}</h5>
         <p class="card-text">${umContato.telefone}</p>
         <p class="card-text">${umContato.email}</p>
-        <button class="btn btn-danger">Deletar</button>
+        <button class="btn btn-danger" type="button" onclick='fnExcluir(${i})'>Deletar</button>
         </div>
       </div>`
   })
 
   document.getElementById("listaDeContatos").innerHTML = dados
+  
 }
 
-function fnExcluir() {
+function fnExcluir(indice) {
+  contatos.splice(indice, 1)
+  fnListar()
+}
 
+function fnLimpar(){
+  document.getElementById("formulario").reset()
 }
 
 document.getElementById("btSalvar").addEventListener('click', function () {
   fnSalvar()
   fnListar()
+  fnLimpar()
 })
