@@ -54,9 +54,14 @@ h3 {
     margin-left: 0.2rem;
 }
 #formulario{
-    position: absolute;
+    position: relative;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 27rem;
+    transform: translate(-50%);
+    width: 30rem;
+}
+
+.centro{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
