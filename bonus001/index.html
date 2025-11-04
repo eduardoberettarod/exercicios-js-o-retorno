@@ -1,50 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bônus 001 - Modal com senha</title>
   <style>
     /* estilo simples do modal */
     #meuModal {
       display: none;
       position: fixed;
-      inset: 0; /* top:0; right:0; bottom:0; left:0; */
-      background: rgba(0,0,0,0.6);
+      inset: 0;
+      /* top:0; right:0; bottom:0; left:0; */
+      background: rgba(0, 0, 0, 0.6);
       justify-content: center;
       align-items: center;
       z-index: 1000;
     }
+
     #meuModal .caixa {
       background: #fff;
       color: #000;
       padding: 20px;
       border-radius: 8px;
       width: 320px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
     }
-    #meuModal input[type="password"]{
+
+    #meuModal input[type="password"] {
       width: 100%;
       padding: 10px;
       margin-top: 10px;
       box-sizing: border-box;
     }
-    #meuModal .conteudo-secreto{
+
+    #meuModal .conteudo-secreto {
       margin-top: 12px;
       padding: 10px;
       background: #f4f4f4;
       border-radius: 6px;
-      display: none; /* só mostra se senha correta */
+      display: none;
+      /* só mostra se senha correta */
     }
+
     #meuModal .botoes {
       margin-top: 12px;
       display: flex;
       gap: 8px;
       justify-content: flex-end;
     }
-    button { padding: 8px 12px; cursor: pointer; }
+
+    button {
+      padding: 8px 12px;
+      cursor: pointer;
+    }
   </style>
 </head>
+
 <body onkeydown="fnTocarSom(event.keyCode)">
   <div>A - Clap</div>
   <div>S - Boom</div>
@@ -55,6 +67,8 @@
   <div>J - Snare</div>
   <div>K - Tink</div>
   <div>L - Tom</div>
+  <button id="btnTeste" class="testes">Teste</button>
+  <button class="testes">sdasd</button>
 
   <audio src="./sounds/clap.wav" id="som-65"></audio>
   <audio src="./sounds/boom.wav" id="som-83"></audio>
@@ -65,6 +79,7 @@
   <audio src="./sounds/snare.wav" id="som-74"></audio>
   <audio src="./sounds/tink.wav" id="som-75"></audio>
   <audio src="./sounds/tom.wav" id="som-76"></audio>
+  <audio src="./sounds/hover.ogg" id="som-hover"></audio>
 
   <!-- Modal -->
   <div id="meuModal">
@@ -179,6 +194,15 @@
         fecharModal();
       }
     });
+    document.querySelectorAll(".testes").forEach(btn =>
+      btn.onmouseenter = () => {
+        let som = document.getElementById("som-hover");
+        som.currentTime = 0;
+        som.play();
+      }
+    );
+
   </script>
 </body>
+
 </html>
